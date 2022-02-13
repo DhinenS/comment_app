@@ -15,7 +15,7 @@ class Auth
 	{	
 		$this->CI =& get_instance();
 		$userdata = $this->CI->session->userdata();
-		if($this->CI->uri->segment(1)!='signin' && $this->CI->uri->segment(1)!='signup'){
+		if($this->CI->uri->segment(1)!='signin' && $this->CI->uri->segment(1)!='signup' && $this->CI->uri->segment(1)!='forgot'){
 			if(!isset($userdata['logged_in'])||($userdata['logged_in']!==true)) {
 				$this->CI->session->sess_destroy();
 				redirect('/signin');

@@ -73,4 +73,28 @@ class Login_model extends CI_Model{
 		}
 		
 	}
+
+	public function get_valid_email( $email='' ){
+		if(!empty($email)) {
+			$this->db->select('id');
+			$this->db->where('email',$email);
+			$response = $this->db->get('developer_users')->result_array();
+			if(!empty($response)) {
+				return $response;
+			} else {
+				return '';
+			}
+		}
+	}
+
+	public function update_password( $user_id = '', $password ='') {
+		if( !empty($user_id) ) {
+			$this->db->where('id',$user_id);
+			$this->db->set('password',password_hash($password, PASSWORD_BCRYPT));
+			$this->db->update('developer_users');
+			return 'Success';
+		} else {
+			return '';
+		}
+	}
 }

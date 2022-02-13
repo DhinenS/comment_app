@@ -38,7 +38,7 @@
 
       <!-- Remind Passowrd -->
       <div id="formFooter">
-        <a class="underlineHover" href="<?php echo base_url('signin/forgot_password');?>">Forgot Password?</a>
+        <a class="underlineHover" href="<?php echo base_url('forgot');?>">Forgot Password?</a>
       </div>
 
     </div>
